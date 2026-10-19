@@ -1,0 +1,7 @@
+name = "erin-website"
+compatibility_date = "2024-01-01"
+
+# KV binding used by the worker (SITE_DATA) for showreels/admin sessions
+[[kv_namespaces]]
+binding = "SITE_DATA"
+id = "a12dd13afaa647d1bfa289d251f6bdcf"
