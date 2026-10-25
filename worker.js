@@ -1640,7 +1640,6 @@ var HTML = `<!DOCTYPE html>
 
 </body>
 </html>`;
-var ADMIN_PASSWORD = "makoali";
 var ADMIN_HTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2008,7 +2007,7 @@ var worker_default = {
     }
     if (path === "/admin/login" && method === "POST") {
       const body = await request.json().catch(() => ({}));
-      if (body.password !== ADMIN_PASSWORD) return json({ error: "Wrong password" }, 401);
+      if (body.password !== env.ADMIN_PASSWORD) return json({ error: "Wrong password" }, 401);
       const token = await mkToken();
       await env.SITE_DATA.put("sess:" + token, "1", { expirationTtl: 86400 });
       return json({ ok: true }, 200, {
